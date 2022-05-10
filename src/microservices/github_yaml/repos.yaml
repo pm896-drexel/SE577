@@ -1,0 +1,38 @@
+github_repos:
+    -
+      id: 1
+      name: test1_repo
+      url: http://test_repo.com/test1_repo/
+      language: java
+      updated: 2021-05-02
+    -
+      id: 2
+      name: test2_repo
+      url: http://test_repo.com/test2_repo/
+      language: .net
+      updated: 2022-04-05
+    -
+      id: 3
+      name: test3_repo
+      url: http://test_repo.com/test3_repo/
+      language: vue
+      updated: 2022-03-05
+    -
+      id: 4
+      name: test4_repo
+      url: http://test_repo.com/test4_repo/
+      language: typescript
+      updated: 2021-12-05
+    -
+      id: 5
+      name: test5_repo
+      url: http://test_repo.com/test5_repo/
+      language: javascript
+      updated: 2021-01-05
+    -
+      id: 6
+      name: test6_repo
+      url: http://test_repo.com/test6_repo/
+      language: java
+      updated: 2022-02-02
+
