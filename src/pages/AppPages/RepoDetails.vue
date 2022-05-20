@@ -42,7 +42,7 @@ const columns = [
 let rows = ref([] as rowType[]);
 onMounted(async () => {
   const res = await axios.get(
-    'http://localhost:4080/yaml_repos'
+    'http://0.0.0.0:4081/yaml_repos'
   );
   rows.value = [];
   const rList = res.data as rowType[];

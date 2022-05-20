@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'InfoComponent',
+  name: 'LoginComponent',
   setup() {
     return {
       text: 'This is the login page to login contents',

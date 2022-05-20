@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'InfoComponent',
+  name: 'ReposComponent',
   setup() {
     return {
       text: 'This is the repos page contains repos',
