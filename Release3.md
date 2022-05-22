@@ -1,19 +1,31 @@
-# SE577
-Below is the UML Diagram defining all of the components & modules of web page and relationship between them.
+# Render Github repos Remotely using our own Custom MicroService
+|Category    | Value             |
+|------------|-------------------|
+| Identifier | adr-0001          |
+| Status     | Accepted          |
+| Author(s)  | Pallavi Mukherjee |
+| Date:      | May 22, 2022      |
+keywords: Repos, yanl, Docker, microservice, fastify, node
+
+# Context And Problem Statement
+
+We would like to use this project as a Demo to showcase remote call to list github repos.
+
+We will render all github repo details by calling our own custom microservice which wil get list in JSOB format and deploy our  microservice via Docker container.
+
+# Considered Options
+* node
+* Go
+* fastify-node
+
+# Decision Outcome
+Choose **fastify-node** , because:
+* Easier to implement and understand.
+* Require minimal amount of code to create a basic API Service.
+
+Architecture Diagram representing Custom github repo service to render githib details:
 
 ![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/typescript.jpg?raw=true)
-
-# Application State
-
-* This application has various components. The main component is RepoDetails which renders the data from yaml_repos microservice.
-* Yaml_repos microservice currently gets the repo details saved in yaml file.
-* Repo Details provides the  following repo details:
-  * ID
-  * Name
-  * URL
-  * Language
-  * Updated
-* Other components (Login, info, Repos) displays the associated heading page when we click on it.
 
 # Steps to run Application
 
