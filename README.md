@@ -29,7 +29,7 @@ Choose **fastify-node** , because:
 
 Architecture Diagram representing Custom github repo service to render githib details:
 
-![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/typescript.jpg?raw=true)
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/typescript_microservice.jpg?raw=true)
 
 # Steps to run Application
 
