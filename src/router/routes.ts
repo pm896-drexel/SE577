@@ -20,6 +20,10 @@ const routes: RouteRecordRaw[] = [
         path: '/repo details',
         component: () => import('pages/AppPages/RepoDetails.vue'),
       },
+       {
+                    path: '/repo gists',
+                    component: () => import('pages/AppPages/RepoGists.vue'),
+                  },
     ],
   },
 
