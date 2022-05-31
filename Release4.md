@@ -34,4 +34,14 @@ label.value = 'AUTHENTICATED';
   * Then i realized to use ``Accept`` method ``application/vnd.GitHub.v3+json`` , which is highly recommended to make Github API calls that resolved the issue for me.
 * Another problem i faced was to set environment variables for making ``username`` and ``token``  secure. Lot of time I  spent to use ``dotenv`` library which was throwing excpetions because of missing library ``fs``.
     * Then, I tried other way to set ``token`` using custom config file which works for me atlast. So, i have setup the config file and created config interface to set and use username and token in my project.
+    *   ```
+        export interface GithubConfig
+         {
+           username: string;
+             token: string;
+           }
+          let config: GithubConfig = require('ghconfig.json');
+          const username =  config.username;
+          const token = config.token;
+
 * Overall, i learned a lot about the different ways to authenticate API calls and how i can make one as per the requirement.
