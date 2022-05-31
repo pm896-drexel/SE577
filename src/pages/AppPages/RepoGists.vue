@@ -44,8 +44,12 @@ export default {
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import * as dotenv from 'dotenv';
-dotenv.config();
+
+export interface GithubConfig
+{
+    username: string;
+    token: string;
+}
 
 type rowType = {
   id: string;
@@ -56,8 +60,10 @@ type rowType = {
   description: string;
 };
 
-const username = process.env.GITHUB_USERNAME;
-const token = process.env.GITHUB_TOKEN;
+let config: GithubConfig = require('ghconfig.json');
+
+const username =  config.username;
+const token = config.token;
 
 const columns = [
   { name: 'id', label: 'ID', align: 'left', field: 'id', sortable: true },
@@ -107,6 +113,7 @@ await axios.get(
     `https://api.github.com/users/${username}`
   ).then((res_unauth) => {repos.value = res_unauth.data;
      label.value = 'UNAUTHENTICATED'});
+     console.log('INFO', 'unauthenticated called');
 };
 const onAuth = async () => {
  reposAuth.value = {};
