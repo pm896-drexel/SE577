@@ -60,7 +60,7 @@ type rowType = {
   description: string;
 };
 
-let config: GithubConfig = require('ghconfig.json');
+let config: GithubConfig = require('./ghconfig.json');
 
 const username =  config.username;
 const token = config.token;
