@@ -1,5 +1,6 @@
 # Using OAuth To Make GitHub API Calls
 
+* You can render my github gists as well as make authenticated calls by clicking on ``Github Gists`` link at the top right. It renders page saved at the project location ``pages/AppPages/RepoGists.vue``
 * It is easy to integrate OAuth to make github API call, and i tried 2 ways to enable it via axios
 
 ````
