@@ -47,9 +47,4 @@ This Single page Application provides various github related information.
       "username": "xxxxx",
       "token": "xxxxxxxxxxx"
       }
-
-
-
-
-
-
+  
