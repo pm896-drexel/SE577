@@ -3,7 +3,7 @@ This Single page Application provides various github related information.
 
 ## Application Component Architecture
 ### Model
-![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/spa_components.jpg?raw=true
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-final/images/spa_components.jpg?raw=true)
 
 The main components of the Application are -
 * **GitHub User Details** - Get specific github user details.
@@ -19,10 +19,32 @@ The main components of the Application are -
 * Github Repo Details make call to local api service which gets data from static yaml file containing repo details.
 * Axios library has been used to make rest API calls.
 
-## Application Service Dependencies Architecture
+## Application API Service Dependencies
 
-### Model
-![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/pod_communication.jpg?raw=true
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-final/images/pod_communication.jpg?raw=true)
+
+* Application has a dependency on following services -
+  * **Remote Github API Service** -
+    * This is the Official Remote Github API Service which gets api requests via ``https`` and renders response in JSON format.
+    * The REST API calls being made by the application -
+      * https://api.github.com/repos/${username}/SE577/commits
+      * https://api.github.com/users/${username}/gists
+      * https://api.github.com/users/${username}/repos
+      * https://api.github.com/users/${username}
+      * https://api.github.com/users/${username}
+  * **Local Github Yaml Service** -
+    * When the request is being made, this service processes yaml formatted file (which contains details of various github repos) and renders the response back in JSON format.
+    * REST API Call being made - http://localhost/yaml_repo/
+
+## Application Management and Attributes -
+* The Application and custom yaml microservice are deployed and managed by single node Kubernetes cluster.
+* Created following kubernetes objects which helped managing an application automatically -
+  * **Deployment** - Created ReplicaSet with 1 replica instance count. It helps keeping my application always running, which makes it **High available** and **resilient**.
+  * **Service** - To access Applications deployed in kubernetes pods (containers) internally(within cluster) and externally(through web browser).
+  * **Ingress** - Set Ingress rules for accessing application and web services externally(outside cluster) through ingress controller.
+
+### Kubernetes Ingress Model
+
 
 ## Application  network Architecture on Kubernetes
 
