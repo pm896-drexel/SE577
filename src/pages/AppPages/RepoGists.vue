@@ -44,12 +44,7 @@ export default {
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-
-export interface GithubConfig
-{
-    username: string;
-    token: string;
-}
+import { username, token } from 'src/githubRepos';
 
 type rowType = {
   id: string;
@@ -59,11 +54,6 @@ type rowType = {
   updated: string;
   description: string;
 };
-
-let config: GithubConfig = require('./ghconfig.json');
-
-const username =  config.username;
-const token = config.token;
 
 const columns = [
   { name: 'id', label: 'ID', align: 'left', field: 'id', sortable: true },

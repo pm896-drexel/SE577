@@ -1,0 +1,35 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pubs-github-web-app
+spec:
+  selector:
+    app: github-web-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-web-app-deployment
+  labels:
+    app: github-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-web-app
+  template:
+    metadata:
+      labels:
+        app: github-web-app
+    spec:
+      containers:
+        - name: github-web-app
+          image: quasar_spa:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

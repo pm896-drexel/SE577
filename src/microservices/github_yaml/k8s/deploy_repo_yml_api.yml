@@ -1,0 +1,36 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pubs-github-web-app-api
+spec:
+  selector:
+    app: github-web-app-api
+  ports:
+    - protocol: TCP
+      port: 4081
+      targetPort: 4081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-web-app-api-deployment
+  labels:
+    app: github-web-app-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-web-app-api
+  template:
+    metadata:
+      labels:
+        app: github-web-app-api
+    spec:
+      containers:
+        - name: github-web-app-api
+          image: github_repos_yml:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 4081
+              name: http

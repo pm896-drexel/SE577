@@ -35,9 +35,11 @@
           <router-link to="/">Home</router-link> |
           <router-link to="/login">login</router-link> |
           <router-link to="/info">info</router-link> |
-          <router-link to="/repos">repos</router-link> |
           <router-link to="/repo details">repo details</router-link> |
-          <router-link to="/repo gists">repo gists</router-link>
+          <router-link to="/repos">github repos</router-link> |
+          <router-link to="/repo gists">repo gists</router-link> |
+          <router-link to="/repo commits">repo commits</router-link> |
+          <router-link to="/repo user details">repo user details</router-link>
         </div>
         <router-view />
       </div>

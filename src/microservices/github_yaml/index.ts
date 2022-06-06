@@ -2,7 +2,6 @@ import fastify from 'fastify'
 import fastifyCors from '@fastify/cors'
 import fs from 'fs'
 import YAML from 'yaml'
-import isDocker from 'is-docker'
 
 // create the fastify task
 const server = fastify({
@@ -15,7 +14,7 @@ server.register(fastifyCors, {
     methods: ["GET"]
 })
 
-server.get('/yaml_repos', async (request, reply) => {
+server.get('/', async (request, reply) => {
 
 const file = fs.readFileSync('./repos.yaml', 'utf8')
 const yamlData = YAML.parse(file)
@@ -28,7 +27,7 @@ const yamlData = YAML.parse(file)
     reply.code(200).send(yamlData.github_repos)
 })
 
-server.listen(4081, '0.0.0.0', (err, address) => {
+server.listen(4081, "::", (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)

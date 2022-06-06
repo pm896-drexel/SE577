@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-git-web
+  annotations:
+    #We will see how this helps with routing apis via being able to rewrite the url not to pass
+    #unnecessary prfix to the api itself
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    namespace: default
+spec:
+  rules:
+    - http:
+        paths:
+         - path: '/(|$)(.*)'
+           pathType: Prefix
+           backend:
+            service:
+              name: pubs-github-web-app
+              port:
+                number: 8080
+         - path: '/yaml_repo/(/|$)(.*)'
+           pathType: Prefix
+           backend:
+            service:
+              name: pubs-github-web-app-api
+              port:
+                number: 4081

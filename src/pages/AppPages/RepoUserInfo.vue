@@ -1,11 +1,11 @@
 <template>
   <div class="q-pa-md">
     <q-banner class="bg-primary text-white">
-      <h6>GitHub Repos From GitHub</h6>
+      <h6>GitHub Repo User Details</h6>
     </q-banner>
     <div class="row">
       <q-table
-        title="GitHub Repo List from Github"
+        title="GitHub Repo User Details"
         dense
         :rows="rows"
         :columns="columns"
@@ -16,7 +16,7 @@
   </template>
   <script lang="ts">
   export default {
-    name: 'GitHubRepos',
+    name: 'GitHubRepoUserDetails',
   };
   </script>
   <script setup lang="ts">
@@ -28,30 +28,33 @@
     id: string;
     name: string;
     url: string;
-    language: string;
+    numberOfRepos: string;
+    numberOfGists: string;
     updated: string;
   };
   const columns = [
     { name: 'id', label: 'ID', align: 'left', field: 'id', sortable: true },
     { name: 'name', label: 'name', align: 'left', field: 'name', sortable: true },
     { name: 'url', label: 'URL', align: 'left', field: 'url', sortable: true },
-    { name: 'language', label: 'Language', align: 'left', field: 'language' },
+    { name: 'numberOfRepos', label: 'Number Of Public Repos', align: 'left', field: 'numberOfRepos' },
+    { name: 'numberOfGists', label: 'Number Of Public Gists', align: 'left', field: 'numberOfGists' },
     { name: 'updated', label: 'Updated', align: 'left', field: 'updated' },
   ];
 
   let rows = ref([] as rowType[]);
   onMounted(async () => {
     const res = await axios.get(
-      `https://api.github.com/users/${username}/repos`
+      `https://api.github.com/users/${username}`
     );
     rows.value = [];
-    const rList = res.data as rowType[];
+    const rList = [res.data] as rowType[];
     const resList = rList.map((row) => {
       const mappedRow: rowType = {
         id: row.id,
-        name: row.name,
+        name: row.login,
         url: row.url,
-        language: row.language,
+        numberOfRepos: row.public_repos,
+        numberOfGists: row.public_gists,
         updated: row.updated_at,
       };
       return mappedRow;

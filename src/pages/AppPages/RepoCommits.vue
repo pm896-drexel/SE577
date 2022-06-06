@@ -1,11 +1,11 @@
 <template>
   <div class="q-pa-md">
     <q-banner class="bg-primary text-white">
-      <h6>GitHub Repos From GitHub</h6>
+      <h6>GitHub Repo Commits</h6>
     </q-banner>
     <div class="row">
       <q-table
-        title="GitHub Repo List from Github"
+        title="GitHub Repo commits from Github"
         dense
         :rows="rows"
         :columns="columns"
@@ -16,7 +16,7 @@
   </template>
   <script lang="ts">
   export default {
-    name: 'GitHubRepos',
+    name: 'GitHubRepoCommits',
   };
   </script>
   <script setup lang="ts">
@@ -27,32 +27,32 @@
   type rowType = {
     id: string;
     name: string;
+    message: string;
     url: string;
-    language: string;
     updated: string;
   };
   const columns = [
     { name: 'id', label: 'ID', align: 'left', field: 'id', sortable: true },
-    { name: 'name', label: 'name', align: 'left', field: 'name', sortable: true },
-    { name: 'url', label: 'URL', align: 'left', field: 'url', sortable: true },
-    { name: 'language', label: 'Language', align: 'left', field: 'language' },
-    { name: 'updated', label: 'Updated', align: 'left', field: 'updated' },
+    { name: 'name', label: 'Author Name', align: 'left', field: 'name', sortable: true },
+    { name: 'message', label: 'Commit Message', align: 'left', field: 'message', sortable: true },
+    { name: 'url', label: 'URL', align: 'left', field: 'url' },
+    { name: 'commitDate', label: 'Commit Date', align: 'left', field: 'updated' },
   ];
 
   let rows = ref([] as rowType[]);
   onMounted(async () => {
     const res = await axios.get(
-      `https://api.github.com/users/${username}/repos`
+      `https://api.github.com/repos/${username}/SE577/commits`
     );
     rows.value = [];
     const rList = res.data as rowType[];
     const resList = rList.map((row) => {
       const mappedRow: rowType = {
-        id: row.id,
-        name: row.name,
-        url: row.url,
-        language: row.language,
-        updated: row.updated_at,
+        id: row.sha,
+        name: row.commit.author.name,
+        message: row.commit.message,
+        url: row.commit.url,
+        updated: row.commit.author.date,
       };
       return mappedRow;
     });

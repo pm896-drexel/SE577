@@ -21,9 +21,17 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/AppPages/RepoDetails.vue'),
       },
        {
-                    path: '/repo gists',
-                    component: () => import('pages/AppPages/RepoGists.vue'),
-                  },
+         path: '/repo gists',
+         component: () => import('pages/AppPages/RepoGists.vue'),
+      },
+       {
+         path: '/repo commits',
+         component: () => import('pages/AppPages/RepoCommits.vue'),
+      },
+       {
+         path: '/repo user details',
+         component: () => import('pages/AppPages/RepoUserInfo.vue'),
+       },
     ],
   },
 
