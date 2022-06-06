@@ -2,10 +2,27 @@
 This Single page Application provides various github related information.
 
 ## Application Component Architecture
+### Model
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/spa_components.jpg?raw=true
 
+The main components of the Application are -
+* **GitHub User Details** - Get specific github user details.
+* **Github Repos** - Get list of repos user owns.
+* **Github Gists** - Get list of gists owned by user.
+* **Github Commits** - get repo commits details.
+* **Github Repo Details** - Get repo details renders from yaml file.
 
+### Facts
+* Our SPA makes REST API call from each component to get github repo details.
+* All of the components except **Github Repo Details** component make  call to remote api service ``https://api.github.com`` to get details.
+* All of the component services renders response in JSON format, which then our application maps it on table structure leveraging vue templates.
+* Github Repo Details make call to local api service which gets data from static yaml file containing repo details.
+* Axios library has been used to make rest API calls.
 
 ## Application Service Dependencies Architecture
+
+### Model
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-release-3/images/pod_communication.jpg?raw=true
 
 ## Application  network Architecture on Kubernetes
 
@@ -47,4 +64,4 @@ This Single page Application provides various github related information.
       "username": "xxxxx",
       "token": "xxxxxxxxxxx"
       }
-  
+

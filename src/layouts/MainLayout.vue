@@ -33,8 +33,6 @@
       <div id="app">
         <div id="nav">
           <router-link to="/">Home</router-link> |
-          <router-link to="/login">login</router-link> |
-          <router-link to="/info">info</router-link> |
           <router-link to="/repo details">repo details</router-link> |
           <router-link to="/repos">github repos</router-link> |
           <router-link to="/repo gists">repo gists</router-link> |
