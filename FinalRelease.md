@@ -38,15 +38,15 @@ The main components of the Application are -
 
 ## Application Management and Attributes -
 * The Application and custom yaml microservice are deployed and managed by single node Kubernetes cluster.
-* Created following kubernetes objects which helped managing an application automatically -
+* Created following kubernetes objects which automate the management of an application -
   * **Deployment** - Created ReplicaSet with 1 replica instance count. It helps keeping my application always running, which makes it **High available** and **resilient**.
   * **Service** - To access Applications deployed in kubernetes pods (containers) internally(within cluster) and externally(through web browser).
-  * **Ingress** - Set Ingress rules for accessing application and web services externally(outside cluster) through ingress controller.
+  * **Ingress** - Set Ingress rules for accessing application and web services externally(outside cluster) via **nginx ingress controller**.
+    * I needed to port-forward the localhost port 80 -> port 80 of Ingress Controller Pod in order to access applications deployed in kubernetes pods.
 
-### Kubernetes Ingress Model
+### Application Network Model in Kubernetes
+![alt text](https://github.com/pm896-drexel/SE577/blob/proj-final/images/project_model_new.jpg?raw=true)
 
-
-## Application  network Architecture on Kubernetes
 
 ## Steps to run your Application
 
